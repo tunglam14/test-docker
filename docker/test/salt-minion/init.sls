@@ -1,4 +1,5 @@
-{%- path = 'path/to/dockerfile' %}
+{%- set path = 'path/to/dockerfile' %}
+
 image:
   docker:
     - built
@@ -21,3 +22,5 @@ run:
     - publish_all_ports: True
     - links:
       salt/saltmaster: salt_master
+    - require:
+      - docker: container
